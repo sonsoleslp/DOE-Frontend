@@ -23,5 +23,5 @@ This app provides a basic tool in order to study the behavior of Monochromatic H
 
 
 [Webpage of the project]:http://poynting.neocities,org
-[logo]: http://sonsoleslp.neocities.org/maspeq.png
+[logo]: http://poynting.neocities.org/images/favicon.png
 [previous release]:http://github.com/sonsoleslp/DOE
