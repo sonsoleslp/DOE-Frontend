@@ -60,7 +60,7 @@ doe = function(){
 
     // constants
     this.axisColor = '#C0C0C0';
-    this.font = '20pt "Monte"';
+    this.font = '20pt "Source Sans Pro"';
     this.tickSize = 20;
 
     // relationships
@@ -276,11 +276,11 @@ doe = function(){
         multiline(context, imped, div , alto/4-12);
 
          if(window.innerWidth > 950 ) {context.font = '16px "Monte"';} else {context.font = '10px "Monte"';} 
-        context.fillText('|ρ| = '+ medio.moduloro , div , 3*alto/4-12);
+        context.fillText('|ρ| = '+ medio.moduloro , div , 3*alto/4-20);
         context.fillText('φ\u2080 = '+ Math.round((medio.fasei) * 100) / 100 , div , 3*alto/4+2); 
 
         context.font = '32px Sans-serif';
-        context.fillText('\u21b3' , div , 3*alto/4-35);
+        context.fillText('\u21b3' , div , 3*alto/4-50);
         context.fillText('\u21b3' , div , alto/4-35);
         // console.log(this.centerX)
         context.strokeStyle = coloreje;

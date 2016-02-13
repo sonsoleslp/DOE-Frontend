@@ -33,7 +33,7 @@ $( "#addmedio" ).click(function(){
 
   mediums[mediums.length] = {"grosor":50,"mur":1,"er":1,"lambda":50,"eta":376.99111843077515,"COE":"1.00","moduloro":"0.00","fasei":0}
    document.getElementById("thelist").innerHTML += '<li class="medio active" id="medio'+(mediums.length-1)+'">'
-      +'<h3><i class="fa fa-bolt"></i> Medium '+(mediums.length)+'</h3>'
+      +'<h3><i class="fa fa-bolt"></i>  Medium '+(mediums.length)+'</h3>'
       +'<ul>'
       +'<li><a href="#">Width  <input name="grosor'+(mediums.length-1)+'" id="grosor'+(mediums.length-1)+'" min="0" max="200" class="inputs" '
       +'value="50" type="number">  mm</a></li>'
@@ -73,7 +73,7 @@ function refill(active){
   for (var i in mediums){
     var activity = (active == i)? ' active':'' ;
     document.getElementById("thelist").innerHTML += '<li class="medio'+ activity+'" id="medio'+(i)+'">'
-      +'<h3><i class="fa fa-bolt"></i> Medium '+(parseInt(i)+1)+'</h3>'
+      +'<h3><i class="fa fa-bolt"></i>  Medium '+(parseInt(i)+1)+'</h3>'
       +'<ul>'
       +'<li><a href="#">Width  <input name="grosor'+(i)+'" id="grosor'+(i)+'" min="0" max="200" step="any"class="inputs" '
       +'value="'+ parseFloat(mediums[i].grosor) +'" type="number">  mm</a></li>'
@@ -94,3 +94,5 @@ function refill(active){
   deleteCallback();
 
 }
+
+

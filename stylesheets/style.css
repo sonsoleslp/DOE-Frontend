@@ -9,15 +9,16 @@
 }
 
 
+
 html{
-	font-family: 'Monte',Arial;
+	font-family: 'Source Sans Pro','Monte',Arial;
 	
 }
 
 body {
 	overflow: hidden;
 	font-size: 14px;
-	font-family: "Monte", Sans-Serif,"Lucida Console","Lucida Grande", Helvetica, Arial;
+	font-family: 'Source Sans Pro',"Monte", Sans-Serif,"Lucida Console","Lucida Grande", Helvetica, Arial;
 }
 
 a {
@@ -55,9 +56,9 @@ a {
 .inputs{
 	width:40px;
 	
-	font-family: 'Monte', 'Sans-Serif';
+	font-family: 'Source Sans Pro','Monte', 'Sans-Serif';
 	margin-left: 5px;
-	font-size: 10px;
+	
 	font-weight: normal;
 
 }
@@ -65,7 +66,12 @@ a {
 	outline: #05E28E;
 }
 
-
+input{
+	font-size: 14px;
+}
+input:active, input:focus{
+	outline: #05E28E;
+}
 
 #arriba{
 
@@ -216,7 +222,7 @@ margin:5px;
 }
 #sss {
 font-size: 14px;
-font-family: "Monte","Lucida Console","Lucida Grande", Helvetica, Arial, sans-serif;
+font-family: 'Source Sans Pro',"Monte","Lucida Console","Lucida Grande", Helvetica, Arial, sans-serif;
 border:none;
 -webkit-border-radius: 28;
 -moz-border-radius: 28;
@@ -272,7 +278,7 @@ bottom:0px;} /* makes it lock to the bottom */
 
 #myCanvas{
 	font-size: 18px;
-	font-family: "Monte", "Lucida Console", Arial, Sans-Serif;
+	font-family: "Source Sans Pro", "Monte", "Lucida Console", Arial, Sans-Serif;
 }
 
 .bl{
@@ -503,7 +509,9 @@ li.medium:hover{
 
 
 
-
+* {
+	font-family: "Source Sans Pro";
+}
 
 
 

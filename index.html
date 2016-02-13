@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta name="description" lang="en" content="Standing Wave Diagram. Sonsoles López Pernas">
     <meta name="description" lang="es" content="Diagrama de onda estacionaria. Sonsoles López Pernas">
-
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='stylesheets/style.css' />
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -45,10 +45,15 @@
   </script>
       <link rel='stylesheet' href='stylesheets/accordion.css' />
   </head>
-  <body>
+<body>
+<div onClick="togglebar()" id="nav-icon1">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
-  <a id="nav-toggle" href="#"><span></span></a>
-   <span ><img onClick="togglebar()" id="logo1" class="logo" src="images/m.png"></span>
+
+  
    <div id="modal" >
    <br>
 <div class="abcont">
@@ -85,10 +90,10 @@
  <div id="lateral" class="lateral">
  <div class="dentro"><br><br><br>
   <div id="accordian"><br>
-  <div style="text-align:center;" id="freqdiv"><label for="freq"><i class="fa fa-feed"></i> Frequency<br> <input id="frecuencia" type="number" min="0" max="1000" step"any" value ="3.00"> GHz</label></div>
+  <div style="text-align:center;" id="freqdiv"><label for="freq"><i class="fa fa-feed"></i> Frequency<br> <input id="frecuencia" type="number" min="0" max="1000" step"any" value ="3.00"> GHz</label></div><br>
   <ul id="thelist">
     <li class="active medio">
-      <h3><i class="fa fa-bolt"></i> Medium 1</h3>
+      <h3><i class="fa fa-bolt"></i>  Medium 1</h3>
       <ul>
         <li><a href="#">Width  <input name="grosor0" id="grosor0" min="0" max="200" class="inputs" step="any" value="50" type="number">  mm</a></li>
         <li><a href="#">εr   <input name="er0" id="er0" min="0" max="100" class="inputs" value="1" step="any" type="number">  </a></li>
@@ -101,7 +106,7 @@
       </ul>
     </li>
     <li class="medio">
-      <h3><i class="fa fa-bolt"></i> Medium 2</h3>
+      <h3><i class="fa fa-bolt"></i>  Medium 2</h3>
       <ul>
         <li><a href="#">Width  <input name="grosor1" id="grosor1" min="0" max="200" class="inputs" step="any" value="12.5" type="number">  mm</a></li>
         <li><a href="#">εr   <input name="er1" id="er1" min="0" max="100" class="inputs" value="1" step="any" type="number">  </a></li>
@@ -114,7 +119,7 @@
       </ul>
     </li>
     <li class="medio">
-      <h3><i class="fa fa-bolt"></i> </span>Medium 3</h3>
+      <h3><i class="fa fa-bolt"></i> Medium 3</h3>
       <ul>
         <li><a href="#">Width  <input name="grosor2" id="grosor2" min="0" max="200" class="inputs" step="any" value="50" type="number">  mm</a></li>
         <li><a href="#">εr   <input name="er2" id="er2" min="0" max="100" class="inputs" value="1" step="any" type="number">  </a></li>
@@ -182,14 +187,12 @@ var first = 0;
 <script src="javascripts/jquery.js"></script>
 <script src="javascripts/jquery.smoothState.js"></script>
 <script src="javascripts/sidebar.js"></script>
+
 <script>
 
 
 $(document).ready(function(){
-    document.querySelector( "#nav-toggle" )
-  .addEventListener( "click", function() {
-    this.classList.toggle( "active" );
-  });
+
    acc()
   $( "input" ).change(function() {
     if(this.id == "frecuencia"){
@@ -203,14 +206,14 @@ $(document).ready(function(){
     }
 
     refill(idd)
-    
-    //alert(    mediums[(this.id.match(/[0-9]+/)[0])][this.id.match(/([A-Z])+/i)[0]] +'  '+this.value );
+
   });
    deleteCallback()
+
+  $('#nav-icon1').click(function(){
+      $(this).toggleClass('open');
+  });
 });
-
-
-
 
 </script>
   <script>
@@ -220,12 +223,6 @@ $(document).ready(function(){
       document.getElementById("lateral").style.width = "300px"
     }else{
       document.getElementById("lateral").style.width = "0px"
-    }
-        if(document.getElementById("logo1").getAttribute("src") == "images/m.png"){
-      document.getElementById("logo1").setAttribute("src","images/x.png")
-    } else if(document.getElementById("logo1").getAttribute("src") == "images/x.png"){
-      document.getElementById("logo1").setAttribute("src","images/m.png")
-
     }
 
   }
