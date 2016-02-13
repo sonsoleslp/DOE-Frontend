@@ -120,14 +120,14 @@ a {
 
 }
 
+
 #modal{
 	 z-index:999 !important; 
 	 position:fixed; 
-	 background-color:#ccc; 
+	 background-color:#bbb; 
+	 border:10px solid #555;
 	 top:5%; bottom:5%; left:5%; right:5%; 
 	 display:none;
-	 background-color: white;
-	background-image: url('../images/wallpaper.png');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
