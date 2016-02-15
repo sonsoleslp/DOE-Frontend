@@ -189,7 +189,8 @@ td,th{
 }
 
 .about{
-	margin:20px;
+	max-width: 90%;
+	margin:3%;
 	margin-bottom: 4px;
 }
 
@@ -201,11 +202,13 @@ td,th{
 	margin:4px;}	
 
 .ab{
-display:inline-block;}
+display:inline-block;
+text-align: center;}
 
 .abcont{
 text-align: center;
-display:inline-block;}
+/*display:inline-block;*/
+}
 
 .caja{
 width:60px;
@@ -266,6 +269,7 @@ max-height: 90vh;
 font-size: 16px;
 display: inline-block;
 vertical-align: top;
+max-width:90%;
 }
 
 .all{
@@ -455,7 +459,9 @@ li.medium:hover{
 	margin:5px 12px;
 	padding:8px 5px;
 }
-
+table{
+	margin: auto;
+}
 .leftmenu{
 
 	list-style: none;

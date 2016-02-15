@@ -15,11 +15,12 @@ function acc(){
 
 function inputchange(){
 $( "input.inputs" ).change(function() {
+
   if(this.id == "frecuencia"){
      freq = this.value
   } else {
   var idd= this.id.match(/[0-9]+/)[0];
-  mediums[idd][this.id.match(/([A-Z])+/i)[0]] = parseInt(this.value)
+  mediums[idd][this.id.match(/([A-Z])+/i)[0]] = parseFloat(this.value)
 
   }
 
@@ -39,26 +40,30 @@ $( "#addmedio" ).click(function(){
       +'value="50" type="number">  mm</a></li>'
       +'<li><a href="#">εr   <input name="er'+(mediums.length-1)+'" id="er'+(mediums.length-1)+'" min="0" max="100" class="inputs" value="1" '
       +' type="number">  </a></li>'
-      +'  <li><a href="#">μr   <input name="mur'+(mediums.length-1)+'" id="er'+(mediums.length-1)+'" min="0" max="100" class="inputs" value="1" type="'
+      +'  <li><a href="#">μr   <input name="mur'+(mediums.length-1)+'" id="mur'+(mediums.length-1)+'" min="0" max="100" class="inputs" value="1" type="'
       +'number">  </a></li>'
       +'  <li><a href="#">λ <span id="lambda'+(mediums.length-1)+'" class="inputs">50</span> mm</a></li>'
       +'  <li><a href="#">η <span id="eta'+(mediums.length-1)+'" class="inputs">188.50</span></a></li>'
       +'  <li><a href="#">|ρ|<span id="ro'+(mediums.length-1)+'" class="inputs">0.33</span></a></li>'
       +'  <li><a href="#">SWR<span id="coe'+(mediums.length-1)+'" class="inputs">2.00</span></a></li>'
-      +'  <li class="trash"><i id="delete'+(mediums.length-1)+'" class="trashi fa fa-trash fa-2x"></i></li> '
+      +'  <li class="trash"><i id="delete'+(mediums.length-1)+'"  class="trashi fa fa-trash fa-2x"></i></li> '
      +' </ul>'
    +' </li>'
 
   refill(mediums.length)
-  deleteCallback()
+// deleteCallback()
 });
 
 function deleteCallback(){
-$( ".trashi" ).click(function(){
-
+$( ".trashi" ).click(function(e){
+  console.log('DELETING')
+  e.stopPropagation()
    var idd= (this.id.match(/[0-9]+/)[0])
+   $("#medio"+idd).remove()
+   console.log(mediums)
    mediums.splice(idd, 1);
-  $("#medio"+idd).remove()
+   console.log(mediums)
+   $(".medio").unbind( "click", function(){} );
   refill(-1);
 
 });
@@ -75,11 +80,11 @@ function refill(active){
     document.getElementById("thelist").innerHTML += '<li class="medio'+ activity+'" id="medio'+(i)+'">'
       +'<h3><i class="fa fa-bolt"></i>  Medium '+(parseInt(i)+1)+'</h3>'
       +'<ul>'
-      +'<li><a href="#">Width  <input name="grosor'+(i)+'" id="grosor'+(i)+'" min="0" max="200" step="any"class="inputs" '
+      +'<li><a href="#">Width  <input name="grosor'+(i)+'" id="grosor'+(i)+'" min="0" max="200" step="any" class="inputs" '
       +'value="'+ parseFloat(mediums[i].grosor) +'" type="number">  mm</a></li>'
       +'<li><a href="#">εr   <input name="er'+(i)+'" id="er'+(i)+'" min="0" max="100" class="inputs" step="any" value="'+ parseFloat(mediums[i].er)  +'" '
       +' type="number">  </a></li>'
-      +'  <li><a href="#">μr   <input name="mur'+(i)+'" id="er'+(i)+'" min="0" max="100" class="inputs" step="any" value="'+ parseFloat(mediums[i].mur)  +'" type="'
+      +'  <li><a href="#">μr   <input name="mur'+(i)+'" id="mur'+(i)+'" min="0" max="100" class="inputs" step="any" value="'+ parseFloat(mediums[i].mur)  +'" type="'
       +'number">  </a></li>'
       +'  <li><a href="#">λ <span id="lambda'+(i)+'" class="inputs">'+ parseFloat(mediums[i].lambda).toFixed(2)  +'</span> mm</a></li>'
       +'  <li><a href="#">η <span id="eta'+(i)+'" class="inputs">'+ parseFloat(mediums[i].eta).toFixed(2)  +'</span></a></li>'

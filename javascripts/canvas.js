@@ -51,7 +51,8 @@ doe = function(){
     this.canvas = document.getElementById(config.canvasId);
    	this.canvas.width  = window.innerWidth;
    	this.canvas.height = window.innerHeight;
-
+    this.canvas.style.width  = window.innerWidth;
+    this.canvas.style.height = window.innerHeight;
     this.minX = config.minX;
     this.minY = config.minY;
     this.maxX = config.maxX;
@@ -248,9 +249,9 @@ doe = function(){
         // console.log("nummedios "+medios.length)
         // console.log("pos:"+posicion)
         context.moveTo(acum, 0);
-         if(window.innerWidth > 950 ) {context.font = '16px "Monte"';} else {context.font = '12px "Monte"';}
+         if(window.innerWidth > 950 ) {context.font = '16px "Source Sans Pro"';} else {context.font = '10pt "Source Sans Pro"';}
         context.fillText(impedancia(medio.eta), acum , 30);
-         if(window.innerWidth > 950 ) {context.font = '14px "Monte"';} else {context.font = '10px "Monte"';}
+         if(window.innerWidth > 950 ) {context.font = '14px "Source Sans Pro"';} else {context.font = '10pt "Source Sans Pro"';}
         context.fillText((medio.grosor)+' mm', acum , alto-30);
         // context.fillText('COE: '+medio.COE, acum , alto-12);
         // context.fillText("COE", acum , alto-66);                
@@ -269,17 +270,17 @@ doe = function(){
         var medio = medios[i];
          context.moveTo(div, 0);
 
-         if(window.innerWidth > 950 ) {context.font = '14px "Monte"';} else {context.font = '10px "Monte"';}
+         if(window.innerWidth > 950 ) {context.font = '14px "Source Sans Pro"';} else {context.font = '10pt "Source Sans Pro"';}
         var ro  = complejox(medio.moduloro, medio.fasei)
         var uno = complejo(1,0);
         var imped =  'Z = \n'+ (imprimir( multiplicacion( complejo(medio.eta,0), division(suma(uno,ro), resta(uno,ro)) ))) +'\n\u2126' ;
         multiline(context, imped, div , alto/4-12);
 
-         if(window.innerWidth > 950 ) {context.font = '16px "Monte"';} else {context.font = '10px "Monte"';} 
+         if(window.innerWidth > 950 ) {context.font = '16px "Source Sans Pro"';} else {context.font = '10pt "Source Sans Pro"';} 
         context.fillText('|ρ| = '+ medio.moduloro , div , 3*alto/4-20);
         context.fillText('φ\u2080 = '+ Math.round((medio.fasei) * 100) / 100 , div , 3*alto/4+2); 
 
-        context.font = '32px Sans-serif';
+        context.font = '25pt Sans-serif';
         context.fillText('\u21b3' , div , 3*alto/4-50);
         context.fillText('\u21b3' , div , alto/4-35);
         // console.log(this.centerX)
@@ -287,7 +288,7 @@ doe = function(){
         context.lineWidth = 2;
         context.stroke();
         div += medios[i+1].grosor/totalmedios*ancho;
-        context.font = '20pt "Monte"';
+        context.font = '20pt "Source Sans Pro"';
       }
 
     }
