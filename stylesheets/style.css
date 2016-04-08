@@ -54,23 +54,30 @@ a {
 }
 
 .inputs{
-	width:40px;
+	width:50px;
 	
 	font-family: 'Source Sans Pro','Monte', 'Sans-Serif';
 	margin-left: 5px;
-	
+	font-size: 1.2em;
 	font-weight: normal;
 
 }
-.inputs:focus{
+.inputs:focus, .inputs:active{
 	outline: #05E28E;
+
 }
 
 input{
-	font-size: 14px;
+	    box-shadow: 0px 0px 0px 2px transparent;
+	font-size: 1.2em;
+	border:1px solid transparent;
+	    -webkit-transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s;
 }
 input:active, input:focus{
+	box-shadow: #05E28E;
 	outline: #05E28E;
+	border:1px solid #05E28E;
 }
 
 #arriba{
@@ -130,7 +137,7 @@ input:active, input:focus{
 #modal{
 	 z-index:999 !important; 
 	 position:fixed; 
-	 background-color:#bbb; 
+	 background-color:#ddd; 
 	 border:10px solid #555;
 	 top:5%; bottom:5%; left:5%; right:5%; 
 	 display:none;
