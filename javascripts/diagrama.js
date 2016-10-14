@@ -1,8 +1,4 @@
-
-
-
 var diagrama = function(){
-	console.log("Calculando diagrama");
 
 		var medios = mediums
 		var numeromedios = medios.length;
@@ -18,23 +14,13 @@ var diagrama = function(){
 		var fasei = 0;
 		m.fasei=fasei;
 		var zvista = complejo(m.eta,0);
-		// console.log(imprimir(zvista))
 		var zant = objeto(zvista);
 
-		// console.log("zant "+imprimir(zant))
-		// console.log("eta "+imprimir(complejo(m.eta,0)));
 		var ro = division(      resta(zant  , complejo(m.eta, 0)   )        ,        suma(complejo(m.eta,0) , zant)         ); 
-		// console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaa"+m.eta)
 
-		// console.log("rooo1  "+ imprimir(ro));
 		var COE = 1;
 		m.COE = COE.toFixed(2)
-		// console.log(m.grosor)
-			
-
-		/*	console.log(" ro: " +  moduloro
-					+ ",  coe: " + COE + ", zvista: " + imprimir(zvista)  + ", fraccion: "
-					+ m.grosor / m.lambda );*/
+ 
 
 		for (var i = numeromedios - 2; i >= 0; i--) {
 
@@ -50,18 +36,13 @@ var diagrama = function(){
 			var den2 = complejo(0, 0);
 			var factor = complejo(m.eta, 0);
 
-			// console.log("factor "+imprimir(factor));
-
-
 		
 			num1 = multiplicacion(zant,complejo(Math.cos(arg), 0));
 			num2 = complejo(0, m.eta*Math.sin(arg));
 			den1 = complejo(m.eta*Math.cos(arg), 0);
 			den2 = multiplicacion(complejo(0,1),multiplicacion(zant,complejo(Math.sin(arg), 0)));
 			zvista = division(multiplicacion(factor,suma(num1,num2)),suma(den1,den2));
-			// console.log("zv"+imprimir(zvista));
 		    ro = division(      resta(zant, complejo(m.eta,0)   )        ,        suma(complejo(m.eta,0) , zant)         );
-			// console.log("roooooooooooo"+imprimir(ro));
 
 			moduloro = modulo(ro);
 			COE = (1 + moduloro) / (1 - moduloro);
@@ -69,9 +50,6 @@ var diagrama = function(){
 			m.moduloro = moduloro.toFixed(2)
 			m.fasei = fase(ro);
 			
-		/*			console.log(" ro: " +  moduloro
-					+ ",  coe: " + COE + ", zvista: " + imprimir(zvista)  + ", fraccion: "
-					+ m.grosor / m.lambda + ", fase inicial:  " + fasei);*/
 
 			zant = objeto(zvista);
 
