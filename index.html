@@ -33,15 +33,15 @@
   <meta property="twitter:image" content="images/spli.png"/>
   <meta property="twitter:description" content="This app provides a basic tool in order to study the behavior of Monochromatic Homogenous Plane Waves when traveling through different media. In this first version, only media without loss are studied, but it is indeed capable of calculating complex impedances, which appear when there are media with a thickness that is not a multiple of a quarter-wavelength. For any imaginable case, this application will draw the Standing Wave Diagram and specify the input impedances, the SWR, and the reflection coefficients for each discontinuity."/>
   <script type="application/ld+json">
-  {
-    "@context": "http://schema.org/",
-    "@type": "SoftwareApplication",
-    "name": "DOE",
-    "applicationCategory": "http://schema.org/WebApplication",
-    "releaseNotes": "Application for drawing the Standing Wave Diagram. Aplicacion para el trazado de diagramas de onda estacionaria",
-    "author": "Sonsoles López Pernas"
+    {
+      "@context": "http://schema.org/",
+      "@type": "SoftwareApplication",
+      "name": "DOE",
+      "applicationCategory": "http://schema.org/WebApplication",
+      "releaseNotes": "Application for drawing the Standing Wave Diagram. Aplicacion para el trazado de diagramas de onda estacionaria",
+      "author": "Sonsoles López Pernas"
 
-  }
+    }
   </script>
   <link rel='stylesheet' href='stylesheets/accordion.css' />
   <script src="//load.sumome.com/" data-sumo-site-id="94901c357e2a6c12ce96c34b91908eeebf51017a7997c376a12fcc3b52a69a41" async="async"></script>
@@ -68,23 +68,10 @@
    <br><br><br>
    <block class="ab">
     <nobr>
-      <table align="center">
-        <tr>
-          <img class="about" src="images/pc.png">
-        </tr><tr>
-        <td><a href="http://www.mediafire.com/download/b8d791deadbcdwe/doe_en.exe"><img class="lang" src="images/uk.png"></a></td>
-        <td><a href="http://www.mediafire.com/download/cacs8ubixqdu3ih/doe.exe"><img class="lang" src="images/es.png"></a></td>
-      </tr>
-    </table>
-
-  </block>
-  <block class="ab">
-    <a href="https://play.google.com/store/apps/details?id=poynting.doe"><img class="about" src="images/android.png"></a></nobr>
-  </block><br>
-
-  <a href="https://github.com/sonsoleslp/DOE-Frontend"><img style="width:50px;" class="about" src="images/git.png"></a>
-</div>    
-<div class="info" style="background-color:transparent; color:#555;"><i id="close" class="fa fa-times fa-3x"></i></div>
+    </block>
+    <a href="https://github.com/sonsoleslp/DOE-Frontend"><img style="width:50px;" class="about" src="images/git.png"></a>
+  </div>    
+  <div class="info" style="background-color:transparent; color:#555;"><i id="close" class="fa fa-times fa-3x"></i></div>
 
 </div>
 
@@ -112,14 +99,14 @@
       </block>
       <block id="pruebas">Test:</block>
       <style>
-      #medios, #pruebas {
-        display:none;
-      }
+        #medios, #pruebas {
+          display:none;
+        }
       </style>
       <script>
-      var mediums = [{"grosor":50,"mur":1,"er":1,"lambda":50,"eta":376.99111843077515,"COE":1.00,"moduloro":0.00,"fasei":0},{"grosor":12.5,"mur":1,"er":4,"lambda":25,"eta":188.49555921538757,"COE":2.00,"moduloro":0.33,"fasei":0},{"grosor":50,"er":1,"mur":1,"lambda":50,"eta":376.99111843077515,"moduloro":0.00,"fasei":0,"COE":1.00}]
-      var freq = 3;
-      var first = 0;
+        var mediums = [{"grosor":50,"mur":1,"er":1,"lambda":50,"eta":376.99111843077515,"COE":1.00,"moduloro":0.00,"fasei":0},{"grosor":12.5,"mur":1,"er":4,"lambda":25,"eta":188.49555921538757,"COE":2.00,"moduloro":0.33,"fasei":0},{"grosor":50,"er":1,"mur":1,"lambda":50,"eta":376.99111843077515,"moduloro":0.00,"fasei":0,"COE":1.00}]
+        var freq = 3;
+        var first = 0;
       </script>
       <canvas   id="myCanvas" ></canvas>
 
@@ -130,11 +117,11 @@
 
     </div>
     <script>
-    $(window).bind("load", doe);
+      $(window).bind("load", doe);
 
-    window.addEventListener("resize", doe);
+      window.addEventListener("resize", doe);
   //doe();
-  </script>
+</script>
 
 
 </div>
@@ -150,72 +137,56 @@
 <script>
 
 
-$(document).ready(function(){
+  $(document).ready(function(){
+    acc();
+    $( "input" ).change(function() {
+      if(this.id == "frecuencia"){
+        freq = this.value
+      } else {
+        var idd= this.id.match(/[0-9]+/)[0];
+        mediums[idd][this.id.match(/([A-Z])+/i)[0]] = parseInt(this.value)
+      }
+      refill(idd)
+    });
 
- acc()
- $( "input" ).change(function() {
-  if(this.id == "frecuencia"){
-   freq = this.value
-   
-  } else {
-
-    var idd= this.id.match(/[0-9]+/)[0];
-    mediums[idd][this.id.match(/([A-Z])+/i)[0]] = parseInt(this.value)
-
-  }
-
-refill(idd)
-
-});
-
- refill(0)
-
- $('#nav-icon1').click(function(){
-  $(this).toggleClass('open');
-});
-});
-
+    refill(0)
+    $('#nav-icon1').click(function(){
+      $(this).toggleClass('open');
+    });
+  });
 </script>
 <script>
-var togglebar = function() {
-  console.log(document.getElementById("lateral").style.width);
-  if( document.getElementById("lateral").style.width == "0px" || document.getElementById("lateral").style.width == ""){
-    document.getElementById("lateral").style.width = "300px"
-  }else{
-    document.getElementById("lateral").style.width = "0px"
+  var togglebar = function() {
+    if( document.getElementById("lateral").style.width == "0px" || document.getElementById("lateral").style.width == ""){
+      document.getElementById("lateral").style.width = "300px"
+    }else{
+      document.getElementById("lateral").style.width = "0px"
+    }
   }
-
-}
-$('#myCanvas').click(function(){
-  if( document.getElementById("lateral").style.width == "0px" || document.getElementById("lateral").style.width == ""){
-  }else{
-    document.getElementById("lateral").style.width = "0px"
-    $('#nav-icon1').toggleClass('open');   
-  }
-});
+  $('#myCanvas').click(function(){
+    if( document.getElementById("lateral").style.width == "0px" || document.getElementById("lateral").style.width == ""){
+    }else{
+      document.getElementById("lateral").style.width = "0px"
+      $('#nav-icon1').toggleClass('open');   
+    }
+  });
 </script>
 <script>
-$('#iconinfo').click(function(){
-
-  $('#modal').fadeToggle();
-
-});
-$('#close').click(function(){
-
-  $('#modal').fadeToggle();
-
-});
-
-
+  $('#iconinfo').click(function(){
+    $('#modal').fadeToggle();
+  });
+  $('#close').click(function(){
+    $('#modal').fadeToggle();
+  });
 </script>
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-56260844-2', 'auto');
-ga('send', 'pageview');
+  ga('create', 'UA-56260844-2', 'auto');
+  ga('send', 'pageview');
 
 </script>
 </body>

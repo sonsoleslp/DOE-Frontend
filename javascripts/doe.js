@@ -24,10 +24,6 @@ function doe(width,height){
 	var dif = largo / total;
 	var puntonuevo = 0;
 	var coef = 2 * Math.sqrt(medios[0].eta* 2 / (2 * medios[0].eta)/ (1 - medios[0].moduloro* medios[0].moduloro));
-			
-			
-			
-					
 
 	for ( i = 0; i < numeromedios; i++) {
 
@@ -41,23 +37,23 @@ function doe(width,height){
 		if (coefi > coef)
 			coef = coefi;
 		var frac = ((120 * Math.PI) /medios[i].eta);
-	 
+
 		var COE = (1 + medios[i].moduloro)/ (1 - medios[i].moduloro);
-		 
+
 
 		puntonuevo += medios[i].grosor / 2 * k;
-	 
 
-	var puntos = [];
 
-	var z = (height - 2 * MARGEN) / parseFloat(coef);
+		var puntos = [];
 
-	var marg = width;
-	var startX = 0;
-	var startY = 0;
+		var z = (height - 2 * MARGEN) / parseFloat(coef);
 
-	var ro = 0;
-	var coe = 1;
+		var marg = width;
+		var startX = 0;
+		var startY = 0;
+
+		var ro = 0;
+		var coe = 1;
 
 	// Comienza a dibujar el DOE de derecha a izquierda
 	for (var a = numeromedios - 1; a >= 0; a--) {
@@ -77,8 +73,8 @@ function doe(width,height){
 		for (var i = 0; i <= gro;) {
 			// Ecuacion del doe
 			var j = mult
-					* Math.abs(Math.sqrt(2 * Math.cos(2 * beta * (i) + fi)
-							* Math.abs(ro) + 1 + ro * ro));
+			* Math.abs(Math.sqrt(2 * Math.cos(2 * beta * (i) + fi)
+				* Math.abs(ro) + 1 + ro * ro));
 
 			var x = parseFloat(marg - i * k - MARGEN - 3);
 			var y = - parseFloat( j * z + height - MARGEN);
@@ -106,34 +102,26 @@ function doe(width,height){
 
 		}
 		if (a == 0 && m.moduloro > 0.0001
-				&& jmax > (1 + m.moduloro - 0.001))
-		/*	canvas.drawText("1+|ρ|", (float) imax - 3 * MARGEN,
-					-(float) jmax * z + canvas.getHeight() - MARGEN, paint);                    */
-		if (a == 0 && m.getModuloro() > 0.0001
-				&& jmin < (1 - m.getModuloro() + 0.001))
-		/*	canvas.drawText("1-|ρ|", (float) imin - 3 * MARGEN,
-					-(float) jmin * z + canvas.getHeight() + MARGEN, paint);					*/
+			&& jmax > (1 + m.moduloro - 0.001))
+	if (a == 0 && m.getModuloro() > 0.0001
+		&& jmin < (1 - m.getModuloro() + 0.001))
 
-		marg -= parseFloat(anc);
+	marg -= parseFloat(anc);
 
-	}
+}
 
-	//		paint.setStrokeWidth(2);
-	//		paint.setColor(Color.rgb(24, 172, 112));
-	puntos.forEach(function(punto){
-		var endX = punto.x;
-		var endY = punto.y;
-	//			canvas.drawLine(startX, startY, endX, endY, paint);
+puntos.forEach(function(punto){
+	var endX = punto.x;
+	var endY = punto.y;
+	startX = endX;
+	startY = endY;
 
-		startX = endX;
-		startY = endY;
-
-	});
+});
 
 
 
 
-	}//  puntos.forEach(function(punto){console.log(JSON.stringify(punto))});
+}
 
-			return puntos;
+return puntos;
 }

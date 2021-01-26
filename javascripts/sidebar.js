@@ -1,5 +1,4 @@
 
-
 function acc(){
   $("#accordian h3").click(function(){
     //slide up all the link lists
@@ -14,19 +13,17 @@ function acc(){
 
 
 function inputchange(){
-$( "input.inputs" ).change(function() {
+$( "input.inputs" ).change(function(e) {
 
   if(this.id == "frecuencia"){
-     freq = this.value
+    freq = this.value
   } else {
-  var idd= this.id.match(/[0-9]+/)[0];
-  mediums[idd][this.id.match(/([A-Z])+/i)[0]] = parseFloat(this.value)
-
+    var idd= this.id.match(/[0-9]+/)[0];
+    mediums[idd][this.id.match(/([A-Z])+/i)[0]] = parseFloat(this.value)
   }
 
   refill(idd)
-  
-  //alert(    mediums[(this.id.match(/[0-9]+/)[0])][this.id.match(/([A-Z])+/i)[0]] +'  '+this.value );
+  document.getElementById(e.target.id).focus();
 });
 }
 
@@ -56,13 +53,10 @@ $( "#addmedio" ).click(function(){
 
 function deleteCallback(){
 $( ".trashi" ).click(function(e){
-  console.log('DELETING')
   e.stopPropagation()
    var idd= (this.id.match(/[0-9]+/)[0])
    $("#medio"+idd).remove()
-   console.log(mediums)
    mediums.splice(idd, 1);
-   console.log(mediums)
    $(".medio").unbind( "click", function(){} );
   refill(-1);
 
@@ -71,9 +65,9 @@ $( ".trashi" ).click(function(e){
 
 function refill(active){
 
-  document.getElementById("thelist").innerHTML = ''
-    diagrama()
-  doe()
+  document.getElementById("thelist").innerHTML = '';
+  diagrama();
+  doe();
 
   for (var i in mediums){
     var activity = (active == i)? ' active':'' ;

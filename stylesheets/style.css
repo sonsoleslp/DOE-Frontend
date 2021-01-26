@@ -68,11 +68,11 @@ a {
 }
 
 input{
-	    box-shadow: 0px 0px 0px 2px transparent;
+	box-shadow: 0px 0px 0px 2px transparent;
 	font-size: 1.2em;
 	border:1px solid transparent;
-	    -webkit-transition: box-shadow 0.3s;
-    transition: box-shadow 0.3s;
+	-webkit-transition: box-shadow 0.3s;
+	transition: box-shadow 0.3s;
 }
 input:active, input:focus{
 	box-shadow: #05E28E;
@@ -135,20 +135,20 @@ input:active, input:focus{
 
 
 #modal{
-	 z-index:999 !important; 
-	 position:fixed; 
-	 background-color:#ddd; 
-	 border:10px solid #555;
-	 top:5%; bottom:5%; left:5%; right:5%; 
-	 display:none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    overflow-y:auto;
-    overflow-x:hidden;
-    font-weight: normal;
-    font-size: 18px;
+	z-index:999 !important; 
+	position:fixed; 
+	background-color:#fff; 
+	border:10px solid #555;
+	top:5%; bottom:5%; left:5%; right:5%; 
+	display:none;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	overflow-y:auto;
+	overflow-x:hidden;
+	font-weight: normal;
+	font-size: 18px;
 }
 
 
@@ -206,86 +206,90 @@ td,th{
 }
 
 .lang{
-	margin:4px;}	
+	margin:4px;
+}	
 
 .ab{
-display:inline-block;
-text-align: center;}
+	display:inline-block;
+	text-align: center;
+}
 
 .abcont{
-text-align: center;
-/*display:inline-block;*/
+	text-align: center;
+	/*display:inline-block;*/
 }
 
 .caja{
-width:60px;
-outline-color: #05E28E;
+	width:60px;
+	outline-color: #05E28E;
 }
 
 .bloque{
-margin:20px;
-text-align: center;
+	margin:20px;
+	text-align: center;
 }
 
 .rem, .caja{
-margin:5px;
+	margin:5px;
 }
+
 #sss {
-font-size: 14px;
-font-family: 'Source Sans Pro',"Monte","Lucida Console","Lucida Grande", Helvetica, Arial, sans-serif;
-border:none;
--webkit-border-radius: 28;
--moz-border-radius: 28;
-border-radius: 28px;
-color: #ffffff;
-background: #333;
-padding: 10px 20px 10px 20px;
-text-decoration: none;
-outline:none;
+	font-size: 14px;
+	font-family: 'Source Sans Pro',"Monte","Lucida Console","Lucida Grande", Helvetica, Arial, sans-serif;
+	border:none;
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	color: #ffffff;
+	background: #333;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+	outline:none;
 }
 
 #sss:hover {
-background: #05E28E;
-text-decoration: none;
-outline:none;
+	background: #05E28E;
+	text-decoration: none;
+	outline:none;
 }
 
 #mini:hover{
-transform:scale(1.2);  
+	transform:scale(1.2);  
 
 }
 
 #gris{
-color:#777;
+	color:#777;
 }
 
 ::-moz-selection{
-background-color:rgb(7,226,142);
+	background-color:rgb(7,226,142);
 
 }
 ::selection{
 
-background-color:rgb(7,226,142);
+	background-color:rgb(7,226,142);
 }
 
 #welcome{
-/*width:150px;*/
-max-height: 90vh;
+	/*width:150px;*/
+	max-height: 90vh;
 }
 .ab{
-font-size: 16px;
-display: inline-block;
-vertical-align: top;
-max-width:90%;
+	font-size: 16px;
+	display: inline-block;
+	vertical-align: top;
+	max-width:90%;
 }
 
 .all{
-text-align: center;
-left:0px;
-right:8px;
-position:absolute; /* to place it somewhere on the screen */
-top:0px;
-bottom:0px;} /* makes it lock to the bottom */
+	text-align: center;
+	left:0px;
+	right:8px;
+	position:absolute; /* to place it somewhere on the screen */
+	top:0px;
+	bottom:0px;
+} /* makes it lock to the bottom */
 
 #myCanvas{
 	font-size: 18px;
@@ -522,9 +526,9 @@ table{
 
 
 
-* {
-	font-family: "Source Sans Pro";
-}
+ * {
+ 	font-family: "Source Sans Pro";
+ }
 
 
 
